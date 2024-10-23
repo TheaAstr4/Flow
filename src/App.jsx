@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { ReactFlow, useNodesState, useEdgesState, addEdge, Position, Background, MiniMap, Controls} from '@xyflow/react'; // Importando Position
+import { ReactFlow, useNodesState, useEdgesState, addEdge, MarkerType, Position, Background, MiniMap, Controls} from '@xyflow/react'; // Importando Position
 import { MdOutlineTaskAlt } from "react-icons/md";
 import { AiFillThunderbolt } from "react-icons/ai";
 import { IoMdCode } from "react-icons/io";
@@ -169,12 +169,17 @@ const initialNodes = [
     targetPosition: Position.Left,
     sourcePosition: Position.Right,
     className: 'light',
-    style: { backgroundColor: 'rgba(255, 0, 0, 0.2)', width: 1000, height: 600},
+    style: { backgroundColor: 'rgba(255, 0, 0, 0.2)', width: 1000, height: 600, border: '#fff'},
   },
 ];
 
 const initialEdges = [
-  { id: 'e1-2', type: 'bezier', source: '1', target: '2', animated: true },
+  { id: 'e1-2', type: 'default', source: '1', target: '2', animated: false, markerEnd: {
+    type: MarkerType.Arrow,
+  }, style: {
+    strokeWidth: 2,
+    stroke: '#FF0072',
+  } },
   { id: 'e2-3', source: '2', type: 'default', target: '3', animated: true },
   { id: 'e3-4', source: '3', type: 'default', target: '4', animated: true },
   { id: 'e3-5', source: '3', type: 'default', target: '5', animated: true },
