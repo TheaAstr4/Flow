@@ -11,7 +11,7 @@ createRoot(document.getElementById('root')).render(
         <App />
       </div>
       <div className="right-pane">
-        <BasicLogViewer /> 
+       
       </div>
     </div>
   </StrictMode>,
