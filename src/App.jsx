@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { ReactFlow, useNodesState, useEdgesState, addEdge, Position } from '@xyflow/react'; // Importando Position
+import { ReactFlow, useNodesState, useEdgesState, addEdge, Position, Background, MiniMap, Controls} from '@xyflow/react'; // Importando Position
 import { MdOutlineTaskAlt } from "react-icons/md";
 import { AiFillThunderbolt } from "react-icons/ai";
 import { IoMdCode } from "react-icons/io";
@@ -146,6 +146,7 @@ const initialNodes = [
     },
     targetPosition: Position.Left,
     sourcePosition: Position.Right,
+    parentId: '13',
   },
   {
     id: '12',
@@ -155,10 +156,20 @@ const initialNodes = [
       name: 'Result',
       job: 'Get final results',
       emoji: <MdOutlineTaskAlt size={30} />, // Ícone
-      style: { backgroundColor: 'rgba(255, 0, 0, 0.2)', width: 200, height: 200 }
     },
     targetPosition: Position.Left,
     sourcePosition: Position.Right,
+    parentId: '13',
+  },
+  {
+    id: '13',
+    type: '',
+    position: { x: 870, y: 10 },
+    data: { label: 'Resultados' },
+    targetPosition: Position.Left,
+    sourcePosition: Position.Right,
+    className: 'light',
+    style: { backgroundColor: 'rgba(255, 0, 0, 0.2)', width: 1000, height: 600},
   },
 ];
 
@@ -204,7 +215,12 @@ const App = () => {
           custom3: CustomNodeSQL,
           custom4: CustomNodeMail}} 
         attributionPosition='bottom-left'
-      />
+        
+     >
+      <MiniMap />
+      <Controls />
+      <Background />
+     </ReactFlow>
     </div>
   );
 };
